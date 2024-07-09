@@ -1,0 +1,45 @@
+<script>
+    // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const addBoardBtn = document.getElementById('add-board-btn');
+    const boardsContainer = document.getElementById('boards-container');
+
+    addBoardBtn.addEventListener('click', () => {
+        const board = createBoard();
+        boardsContainer.appendChild(board);
+    });
+});
+
+function createBoard() {
+    const board = document.createElement('div');
+    board.classList.add('board');
+
+    const boardHeader = document.createElement('div');
+    boardHeader.classList.add('board-header');
+
+    const boardTitle = document.createElement('h2');
+    boardTitle.textContent = 'New Board';
+    boardHeader.appendChild(boardTitle);
+
+    const addCardBtn = document.createElement('button');
+    addCardBtn.textContent = 'Add Card';
+    addCardBtn.addEventListener('click', () => {
+        const card = createCard();
+        board.appendChild(card);
+    });
+    boardHeader.appendChild(addCardBtn);
+
+    board.appendChild(boardHeader);
+
+    return board;
+}
+
+function createCard() {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.textContent = 'New Card';
+    return card;
+}
+
+</script>
